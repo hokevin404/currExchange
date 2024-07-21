@@ -3,20 +3,43 @@ import './curConvert.css';
 
 // Import modules
 import { useState } from 'react';
+// import axios from 'axios';
 
+function CurConvert({curr}) {
+    // const [curr, setCurr] = useState({});
+    const fromCurr = document.getElementById(`fromCurr`);
+    const toCurr = document.getElementById(`toCurr`);
 
-function CurConvert() {
-    const [curr, setCurr] = useState({});
+    // Object.entries(props).forEach((curr) => {
+    //     console.log(curr)
+    // })
 
-    async function getCurr() {
+    // console.log(curr)
 
+    for(const [key, value] of Object.entries(curr)) {
+        // console.log(`${key} ${value}`)
+        if(value) {
+            const option = document.createElement("option");
+            option.setAttribute("value", key);
+            const currName = document.createTextNode(value);
+            option.appendChild(currName);
+            fromCurr.appendChild(option)
+        }
     }
 
+
+
+    // console.log(props)
+
     return (
-        <div>
-            <select></select>
-            <select></select>
-            <input onSubmit={''}></input>
+        <div className='currContainer'>
+            <p>TEST TEST</p>
+            <p>TEST TEST</p>
+            <p>TEST TEST</p>
+            <p>TEST TEST</p>
+            <select id='fromCurr'></select>
+            <select id='toCurr'></select>
+            <input ></input>
         </div>
     )
 }
