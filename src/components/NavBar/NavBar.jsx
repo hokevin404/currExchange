@@ -5,7 +5,7 @@ function NavBar() {
     <>
         <ul>
             <li>
-                <a href="#home"> Curvert</a>
+                <a href="/"> Curvert</a>
             </li>        
         </ul>   
     </>

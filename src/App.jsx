@@ -1,4 +1,5 @@
 // Import Components
+import Main from './pages/Main';
 import NavBar from './components/NavBar/NavBar';
 
 // Import modules
@@ -30,10 +31,10 @@ function App() {
 
   return (
     <>
+      <NavBar />
       <Routes>
-        <NavBar />
-        <Route path='/' element={<Main />} />
-        <CurConvert curr={curr} />
+        <Route path="/" element={<Main />} />
+        <Route path="/currency" element={<CurConvert curr={curr} />} />
       </Routes>
     </>
   )

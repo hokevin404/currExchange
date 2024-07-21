@@ -11,7 +11,7 @@ function Selection({curr, menu}) {
                 option.setAttribute("value", key);
                 const currName = document.createTextNode(value);
                 option.appendChild(currName);
-                selectID.appendChild(option)
+                selectID.appendChild(option);
             }
         }
     }
