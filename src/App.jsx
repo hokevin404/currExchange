@@ -2,6 +2,7 @@
 import NavBar from './components/NavBar/NavBar';
 
 // Import modules
+import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import './App.css'
@@ -29,8 +30,11 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      <CurConvert curr={curr}/>
+      <Routes>
+        <NavBar />
+        <Route path='/' element={<Main />} />
+        <CurConvert curr={curr} />
+      </Routes>
     </>
   )
 }

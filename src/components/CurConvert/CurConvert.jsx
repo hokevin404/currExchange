@@ -40,7 +40,7 @@ function CurConvert({curr}) {
             <Selection curr={curr} menu="toCurr" />
             {/* <select id='fromCurr'></select> */}
             {/* <select id='toCurr'></select> */}
-            <input ></input>
+            <button type='button'> Convert</button>
         </div>
     )
 }
