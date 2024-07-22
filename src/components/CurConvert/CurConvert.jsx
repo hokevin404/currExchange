@@ -16,7 +16,7 @@ function CurConvert({curr}) {
     const [amount, setAmount] = useState('');
     axios.defaults.baseURL = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies`;
 
-    useEffect(() => {
+    function fetchAPI() {
         if (fromCurr && toCurr && amount) {
             axios
                 .get(`/${fromCurr}.json`)
@@ -37,10 +37,13 @@ function CurConvert({curr}) {
                     console.error('Error fetching data:', error);
                 });
         }
-    }, [fromCurr, toCurr, amount]); // Trigger effect when fromCurr, toCurr, or amount changes
+    };
 
     const handleClick = () => {
-        console.log(`Convert from ${fromCurr} to ${toCurr}, Amount: ${amount}`);
+        if(fromCurr && toCurr && amount)
+            fetchAPI();
+        else
+            alert(`Please select currencies and enter the amount`)
     };
 
     return (
@@ -53,8 +56,8 @@ function CurConvert({curr}) {
             {resData && (
                 <div>
                     <h2>Conversion Details</h2>
-                    <p>From: {resData.fromCurrency}</p>
-                    <p>To: {resData.toCurrency}</p>
+                    <p>From: {resData.fromCurrency.toUpperCase()}</p>
+                    <p>To: {resData.toCurrency.toUpperCase()}</p>
                     <p>Amount: {resData.amount}</p>
                     <p>Converted Amount: {resData.convertedAmount}</p>
                 </div>
