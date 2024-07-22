@@ -62,10 +62,13 @@ function CurConvert({curr}) {
         <div className='appContainer'>
             <div className='currContainer'>
                 <div className='selectContainer'>
+                    <span>Convert From:</span>
                     <Selection curr={curr} menu="fromCurr" setSelect={setFromCurr} />
+                    <span>Convert To:</span>
                     <Selection curr={curr} menu="toCurr" setSelect={setToCurr} />
                 </div>
                 <div className='inputContainer'>
+                    <label htmlFor="amountInput">Enter amount:</label>
                     <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
                 </div>
                 

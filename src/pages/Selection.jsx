@@ -19,7 +19,7 @@ function Selection({ curr, menu, setSelect }) {
 
     return (
         <select id={menu} onChange={(e) => setSelect(e.target.value)}>
-            {options}
+           {options}
         </select>
     );
 }

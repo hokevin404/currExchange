@@ -1,7 +1,7 @@
 body {
-    background-color: rgb(73, 73, 73); /* Set the background color of the entire page */
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
+    background-color: rgb(73, 73, 73);
+    margin: 0;
+    padding: 0;
 }
 
 .currContainer {
@@ -11,29 +11,40 @@ body {
     border-radius: 8px;
     background-color: #888888;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px; /* Adjust based on your design */
-    margin: 0 auto; /* Center horizontally */
+    max-width: 600px;
+    margin: 0 auto;
     margin-top: 8%;
 }
 
 .selectContainer {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .selectContainer select {
-    width: 48%; /* Adjust width as needed */
+    width: 50%;
     padding: 8px;
     font-size: 16px;
+    margin-bottom: 14px;
+}
+
+.inputContainer label {
+    display: block;
+    margin-bottom: 5px;
 }
 
 .inputContainer input {
     margin-bottom: 10px;
-    width: 30%;
+    width: 50%;
     padding: 8px;
     font-size: 16px;
     box-sizing: border-box;
+}
+
+span {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 button {
