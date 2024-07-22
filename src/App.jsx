@@ -12,16 +12,19 @@ import CurConvert from './components/CurConvert/CurConvert';
 function App() {
   const [curr, setCurr] = useState({});
 
+  // Async function to retrieve currency data from api
   async function getCurr() {
-    try {
-      const res = await axios.get(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json`)
-      const data = await res.data;
-      // console.log(data);
-      setCurr(data);
 
-    } catch (error) {
-      console.error(error)
-    }
+    axios
+      .get(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json`)
+      .then(res => {
+        // console.log(res);
+        // console.log(res.data)
+        setCurr(res.data)
+      })
+      .catch(error => {
+        console.error(error)
+      });
   };
 
   useEffect(() => {
@@ -31,11 +34,15 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/currency" element={<CurConvert curr={curr} />} />
-      </Routes>
+      <div className='appContainer'>
+        <NavBar />
+        <div className='content'>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/currency" element={<CurConvert curr={curr} />} />
+          </Routes>
+        </div>
+      </div>
     </>
   )
 }
