@@ -47,21 +47,28 @@ function CurConvert({curr}) {
     };
 
     return (
-        <div className='currContainer'>
-            <Selection curr={curr} menu="fromCurr" setSelect={setFromCurr} />
-            <Selection curr={curr} menu="toCurr" setSelect={setToCurr} />
-            <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
-            <button type='button' onClick={handleClick}> Convert </button>
-
-            {resData && (
-                <div>
-                    <h2>Conversion Details</h2>
-                    <p>From: {resData.fromCurrency.toUpperCase()}</p>
-                    <p>To: {resData.toCurrency.toUpperCase()}</p>
-                    <p>Amount: {resData.amount}</p>
-                    <p>Converted Amount: {resData.convertedAmount}</p>
+        <div className='appContainer'>
+            <div className='currContainer'>
+                <div className='selectContainer'>
+                    <Selection curr={curr} menu="fromCurr" setSelect={setFromCurr} />
+                    <Selection curr={curr} menu="toCurr" setSelect={setToCurr} />
                 </div>
-            )}
+                <div className='inputContainer'>
+                    <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
+                </div>
+                
+                <button type='button' onClick={handleClick}> Convert </button>
+
+                {resData && (
+                    <div>
+                        <h2>Conversion Details</h2>
+                        <p>From: {resData.fromCurrency.toUpperCase()}</p>
+                        <p>To: {resData.toCurrency.toUpperCase()}</p>
+                        <p>Amount: {resData.amount}</p>
+                        <p>Converted Amount: {resData.convertedAmount}</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
