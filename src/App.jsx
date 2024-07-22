@@ -14,7 +14,6 @@ function App() {
 
   // Async function to retrieve currency data from api
   async function getCurr() {
-
     axios
       .get(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json`)
       .then(res => {
@@ -27,6 +26,7 @@ function App() {
       });
   };
 
+  // useEffect to run api call function at page load up 
   useEffect(() => {
     getCurr();
   }, []);

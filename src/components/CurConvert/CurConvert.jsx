@@ -5,17 +5,23 @@ import './curConvert.css';
 import Selection from '../../pages/Selection';
 
 // Import modules
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 // import axios from 'axios';
 
 function CurConvert({curr}) {
+    // State to hold which currency user is converting from
     const [fromCurr, setFromCurr] = useState('');
+    // State to hold which currency user is converting to
     const [toCurr, setToCurr] = useState('');
+    // State to hold currency data which user is converting from
     const [resData, setResData] = useState('');
+    // State to hold currency amount user wants to convert
     const [amount, setAmount] = useState('');
+    // Axios base URL
     axios.defaults.baseURL = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies`;
 
+    // API fetch function to retrieve conversion rate and conversion amount based on user currency selection 
     function fetchAPI() {
         if (fromCurr && toCurr && amount) {
             axios
@@ -26,6 +32,10 @@ function CurConvert({curr}) {
                     // console.log(conversionRate)
                     const convertedAmount = amount * conversionRate;
                     // console.log(convertedAmount);
+
+                    // Set State to hold curreny converting from and to,
+                    // the  amount to convert to,
+                    // and the converted amount to two decimal points
                     setResData({
                         fromCurrency: fromCurr,
                         toCurrency: toCurr,
@@ -39,7 +49,9 @@ function CurConvert({curr}) {
         }
     };
 
+    // Invoke API Fetch Function when user clicks button
     const handleClick = () => {
+        // console.log(${fromCurr} ${toCurr} ${amount})
         if(fromCurr && toCurr && amount)
             fetchAPI();
         else
